@@ -154,8 +154,6 @@
           <div class="row">
             <div class="col-lg-6">
               <div class="vid-area">
-                
-
                 <div class="cont">
                   <h3 class="wow" data-splitting>
                     So that's us. There's no other way to put it.
@@ -315,7 +313,7 @@
           </div>
 
           <!-- gallery -->
-          <div class="gallery full-width">
+          <div class="gallery full-width gallery-wrapper">
             <div
               v-for="(project, index) in projects"
               :key="project.id"
@@ -494,7 +492,7 @@ export default {
     ...mapGetters("services", ["services2"]),
     ...mapGetters("projects", ["projects", "categories", "video"]),
     player() {
-      return this.$refs.youtube.player
+      return this.$refs.youtube.player;
     }
   },
   methods: {

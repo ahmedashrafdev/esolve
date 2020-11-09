@@ -1,6 +1,6 @@
 export default {
   // Global page headers (https://go.nuxtjs.dev/config-head)
-  mode: "spa",
+  ssr: true,
   head: {
     title: "esolve",
     __dangerouslyDisableSanitizers: ["script"],
@@ -23,22 +23,22 @@ export default {
       {
         hid: "gtm-script1",
         src: "/js/jquery-3.0.0.min.js",
-        defer: true
+        defer: false
       },
       {
         hid: "gtm-script2",
         src: "/js/jquery-migrate-3.0.0.min.js",
-        defer: true
+        defer: false
       },
       {
         hid: "gtm-script3",
         src: "/js/plugins.js",
-        defer: true
+        defer: false
       },
       {
         hid: "gtm-script4",
         src: "/js/scripts.js",
-        defer: true
+        defer: false
       }
     ],
     link: [

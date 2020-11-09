@@ -6192,3 +6192,7 @@ html {
 .pointer {
   cursor: pointer;
 }
+.gallery-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
