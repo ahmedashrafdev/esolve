@@ -6,11 +6,13 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
+    "push": "git push origin main",
     "generate": "nuxt generate"
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "nuxt": "^2.14.6"
+    "nuxt": "^2.14.6",
+    "vue-it-bigger": "^0.1.1"
   },
   "devDependencies": {}
 }

@@ -7,8 +7,8 @@ export const state = () => ({
     },
     {
       id: 2,
-      first: "Product",
-      second: "Photography"
+      first: "UI / UX",
+      second: "Design"
     },
     {
       id: 3,

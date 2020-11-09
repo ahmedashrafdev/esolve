@@ -32,7 +32,7 @@
       <div class="container">
         <!-- Logo -->
         <a class="logo" href="#">
-          <img src="img/logo-light.png" alt="logo" />
+          <img :src="logo" alt="logo" />
         </a>
 
         <button
@@ -82,34 +82,28 @@
           <div class="col-lg-5">
             <div class="cont">
               <div class="logo">
-                <a href="#0">
-                  <img src="img/logo-light.png" alt="" />
+                <a href="" class="pointer">
+                  <img :src="logo" alt="" />
                 </a>
               </div>
               <div class="con-info custom-font">
                 <ul>
-                  <li><span>Email : </span> Imedia_support@website.com</li>
-                  <li>
-                    <span>Address : </span> A32 , Ave 15th Street, Door 211, San
-                    Franciso, USA 32490.
+                  <li v-for="contact in contacts" :key="contact.key">
+                    <span>{{ contact.key }} : </span> {{ contact.value }}
                   </li>
-                  <li><span>Phone : </span> (+1) 2345 678 44 88</li>
                 </ul>
               </div>
               <div class="social-icon">
                 <h6 class="custom-font stit simple-btn">Follow Us</h6>
                 <div class="social">
-                  <a href="#0" class="icon">
-                    <i class="fab fa-facebook-f"></i>
-                  </a>
-                  <a href="#0" class="icon">
-                    <i class="fab fa-twitter"></i>
-                  </a>
-                  <a href="#0" class="icon">
-                    <i class="fab fa-pinterest"></i>
-                  </a>
-                  <a href="#0" class="icon">
-                    <i class="fab fa-behance"></i>
+                  <a
+                    class="icon"
+                    v-for="link in socials"
+                    :key="link.key"
+                    :href="link.link"
+                    target="_blank"
+                  >
+                    <i :class="`fab fa-${link.key}`"></i>
                   </a>
                 </div>
               </div>
@@ -142,3 +136,11 @@
     </footer>
   </div>
 </template>
+<script>
+import { mapGetters } from "vuex";
+export default {
+  computed: {
+    ...mapGetters("static", ["logo", "contacts", "socials"])
+  }
+};
+</script>

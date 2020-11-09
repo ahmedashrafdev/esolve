@@ -46,10 +46,14 @@
         <div class="swiper-pagination top botm custom-font"></div>
 
         <div class="social-icon">
-          <a href="#0"><i class="fab fa-facebook-f"></i></a>
-          <a href="#0"><i class="fab fa-twitter"></i></a>
-          <a href="#0"><i class="fab fa-behance"></i></a>
-          <a href="#0"><i class="fab fa-pinterest-p"></i></a>
+          <a
+            v-for="link in socials"
+            :key="link.key"
+            :href="link.link"
+            target="_blank"
+          >
+            <i :class="`fab fa-${link.key}`"></i>
+          </a>
         </div>
       </div>
     </header>
@@ -143,22 +147,14 @@
     <section id="testemonials" class="block-sec">
       <div
         class="background bg-img section-padding pb-0"
-        data-background="img/slid/1.jpg"
+        data-background="https://esolve-eg.b-cdn.net/1.jpg"
         data-overlay-dark="8"
       >
         <div class="container">
           <div class="row">
             <div class="col-lg-6">
               <div class="vid-area">
-                <div class="vid-icon">
-                  <a class="vid" href="https://vimeo.com/127203262">
-                    <div class="vid-butn">
-                      <span class="icon">
-                        <i class="fas fa-play"></i>
-                      </span>
-                    </div>
-                  </a>
-                </div>
+                
 
                 <div class="cont">
                   <h3 class="wow" data-splitting>
@@ -276,7 +272,7 @@
                 <div class="col-md-6">
                   <div class="item wow fadeInLeft" data-wow-delay=".3">
                     <div class="skill" data-value="0.75">
-                      <span class="custom-font">75%</span>
+                      <span class="custom-font">95%</span>
                     </div>
                     <div class="cont">
                       <span>App</span>
@@ -309,117 +305,45 @@
           <div class="filtering text-center col-12">
             <div class="filter">
               <span data-filter="*" class="active">All</span>
-              <span data-filter=".brand">Branding</span>
-              <span data-filter=".web">Mobile App</span>
-              <span data-filter=".graphic">Creative</span>
+              <span
+                v-for="cat in categories"
+                :key="cat.id"
+                :data-filter="`.${cat.id}`"
+                >{{ cat.name }}</span
+              >
             </div>
           </div>
 
           <!-- gallery -->
           <div class="gallery full-width">
-            <!-- gallery item -->
             <div
-              class="col-lg-4 col-md-6 items graphic wow fadeInUp"
+              v-for="(project, index) in projects"
+              :key="project.id"
+              :class="
+                `${project.category_id} col-lg-4 col-md-6 items wow fadeInUp`
+              "
               data-wow-delay=".4s"
+              @click="openGallery(index)"
             >
               <div class="item-img">
-                <a href="project-details.html" class="imago wow">
-                  <img src="img/portfolio/mas/01.jpg" alt="image" />
+                <a class="pointer imago wow">
+                  <img :src="project.src" :alt="project.captio" />
                   <div class="item-img-overlay"></div>
                 </a>
               </div>
               <div class="cont">
-                <h6>Creativity Demand</h6>
-                <span><a href="#0">Design</a>, <a href="#0">WordPress</a></span>
-              </div>
-            </div>
-
-            <!-- gallery item -->
-            <div
-              class="col-lg-4 col-md-6 items web lg-mr wow fadeInUp"
-              data-wow-delay=".4s"
-            >
-              <div class="item-img">
-                <a href="project-details.html" class="imago wow">
-                  <img src="img/portfolio/mas/02.jpg" alt="image" />
-                  <div class="item-img-overlay"></div>
-                </a>
-              </div>
-              <div class="cont">
-                <h6>Through The Breaking</h6>
-                <span><a href="#0">Design</a>, <a href="#0">WordPress</a></span>
-              </div>
-            </div>
-
-            <!-- gallery item -->
-            <div
-              class="col-lg-4 col-md-6 items brand wow fadeInUp"
-              data-wow-delay=".4s"
-            >
-              <div class="item-img">
-                <a href="project-details.html" class="imago wow">
-                  <img src="img/portfolio/mas/03.jpg" alt="image" />
-                  <div class="item-img-overlay"></div>
-                </a>
-              </div>
-              <div class="cont">
-                <h6>Create With Creatives</h6>
-                <span><a href="#0">Design</a>, <a href="#0">WordPress</a></span>
-              </div>
-            </div>
-
-            <!-- gallery item -->
-            <div
-              class="col-lg-4 col-md-6 items graphic wow fadeInUp"
-              data-wow-delay=".4s"
-            >
-              <div class="item-img">
-                <a href="project-details.html" class="imago wow">
-                  <img src="img/portfolio/mas/04.jpg" alt="image" />
-                  <div class="item-img-overlay"></div>
-                </a>
-              </div>
-              <div class="cont">
-                <h6>Energies of Love</h6>
-                <span><a href="#0">Design</a>, <a href="#0">WordPress</a></span>
-              </div>
-            </div>
-
-            <!-- gallery item -->
-            <div
-              class="col-lg-4 col-md-6 items web wow fadeInUp"
-              data-wow-delay=".4s"
-            >
-              <div class="item-img">
-                <a href="project-details.html" class="imago wow">
-                  <img src="img/portfolio/mas/05.jpg" alt="image" />
-                  <div class="item-img-overlay"></div>
-                </a>
-              </div>
-              <div class="cont">
-                <h6>See It Yourself</h6>
-                <span><a href="#0">Design</a>, <a href="#0">WordPress</a></span>
-              </div>
-            </div>
-
-            <!-- gallery item -->
-            <div
-              class="col-lg-4 col-md-6 items brand wow fadeInUp"
-              data-wow-delay=".4s"
-            >
-              <div class="item-img">
-                <a href="project-details.html" class="imago wow">
-                  <img src="img/portfolio/mas/06.jpg" alt="image" />
-                  <div class="item-img-overlay"></div>
-                </a>
-              </div>
-              <div class="cont">
-                <h6>Blast From The Past</h6>
-                <span><a href="#0">Design</a>, <a href="#0">WordPress</a></span>
+                <h6>{{ project.name }}</h6>
+                <span>{{ project.category }}</span>
               </div>
             </div>
           </div>
         </div>
+        <LightBox
+          ref="galerylightbox"
+          :media="projects"
+          :show-caption="true"
+          :show-light-box="false"
+        ></LightBox>
       </div>
     </section>
 
@@ -442,85 +366,17 @@
           <div class="col-lg-8">
             <div>
               <div class="row bord">
-                <div class="col-md-3 col-6 brands">
+                <div
+                  class="col-md-3 col-6 brands"
+                  v-for="logo in logos"
+                  :key="logo.id"
+                >
                   <div class="item wow fadeIn" data-wow-delay=".3s">
                     <div class="img">
-                      <img src="img/clients/brands/01.png" alt="" />
-                      <a href="#0" class="link" data-splitting
-                        >www.Imedia.com</a
-                      >
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-3 col-6 brands">
-                  <div class="item wow fadeIn" data-wow-delay=".6s">
-                    <div class="img">
-                      <img src="img/clients/brands/02.png" alt="" />
-                      <a href="#0" class="link" data-splitting
-                        >www.Imedia.com</a
-                      >
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-3 col-6 brands">
-                  <div class="item wow fadeIn" data-wow-delay=".8s">
-                    <div class="img">
-                      <img src="img/clients/brands/03.png" alt="" />
-                      <a href="#0" class="link" data-splitting
-                        >www.Imedia.com</a
-                      >
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-3 col-6 brands">
-                  <div class="item wow fadeIn" data-wow-delay=".3s">
-                    <div class="img">
-                      <img src="img/clients/brands/04.png" alt="" />
-                      <a href="#0" class="link" data-splitting
-                        >www.Imedia.com</a
-                      >
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-3 col-6 brands">
-                  <div class="item wow fadeIn" data-wow-delay=".4s">
-                    <div class="img">
-                      <img src="img/clients/brands/05.png" alt="" />
-                      <a href="#0" class="link" data-splitting
-                        >www.Imedia.com</a
-                      >
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-3 col-6 brands">
-                  <div class="item wow fadeIn" data-wow-delay=".7s">
-                    <div class="img">
-                      <img src="img/clients/brands/06.png" alt="" />
-                      <a href="#0" class="link" data-splitting
-                        >www.Imedia.com</a
-                      >
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-3 col-6 brands">
-                  <div class="item wow fadeIn" data-wow-delay=".5s">
-                    <div class="img">
-                      <img src="img/clients/brands/07.png" alt="" />
-                      <a href="#0" class="link" data-splitting
-                        >www.Imedia.com</a
-                      >
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-3 col-6 brands">
-                  <div class="item wow fadeIn" data-wow-delay=".3s">
-                    <div class="img">
-                      <img src="img/clients/brands/08.png" alt="" />
-                      <a href="#0" class="link" data-splitting
-                        >www.Imedia.com</a
-                      >
+                      <img :src="logo.img" :alt="logo.name" />
+                      <a :href="logo.link" class="link" data-splitting>{{
+                        logo.link
+                      }}</a>
                     </div>
                   </div>
                 </div>
@@ -548,7 +404,7 @@
               <form
                 id="contact-form"
                 method="post"
-                action="http://innovationplans.com/idesign/avo/contact.php"
+                @submit.prevent="sendMail()"
               >
                 <div class="messages"></div>
 
@@ -559,9 +415,8 @@
                         <input
                           id="form_name"
                           type="text"
-                          name="name"
                           placeholder="Name"
-                          required="required"
+                          v-model="form.name"
                         />
                       </div>
                     </div>
@@ -570,20 +425,18 @@
                         <input
                           id="form_email"
                           type="email"
-                          name="email"
                           placeholder="Email"
-                          required="required"
+                          v-model="form.email"
                         />
                       </div>
                     </div>
                     <div class="col-lg-4">
                       <div class="form-group">
                         <input
-                          id="form_name"
+                          id="form_subject"
                           type="text"
-                          name="name"
-                          placeholder="Name"
-                          required="required"
+                          placeholder="Subject"
+                          v-model="form.subject"
                         />
                       </div>
                     </div>
@@ -591,7 +444,7 @@
                       <div class="form-group">
                         <textarea
                           id="form_message"
-                          name="message"
+                          v-model="form.msg"
                           placeholder="Message"
                           rows="4"
                           required="required"
@@ -602,7 +455,7 @@
                       <div class="text-center">
                         <button
                           type="submit"
-                          class="simple-btn custom-font cursor-pointer"
+                          class="simple-btn custom-font pointer cursor-pointer"
                         >
                           <span>Send Message</span>
                         </button>
@@ -620,14 +473,38 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapMutations } from "vuex";
 export default {
   name: "home",
+  data() {
+    return {
+      form: {
+        name: "",
+        email: "",
+        subject: "",
+        msg: ""
+      }
+    };
+  },
   computed: {
     ...mapGetters("slider", ["slides"]),
     ...mapGetters("static", ["about"]),
+    ...mapGetters("static", ["logos", "socials"]),
     ...mapGetters("services", ["services"]),
-    ...mapGetters("services2", ["services2"])
+    ...mapGetters("services", ["services2"]),
+    ...mapGetters("projects", ["projects", "categories", "video"]),
+    player() {
+      return this.$refs.youtube.player
+    }
+  },
+  methods: {
+    openGallery(index) {
+      //   console.log(this.$refs.galerylightbox.showImage(index))
+      this.$refs.galerylightbox.showImage(index);
+    },
+    sendMail() {
+      console.log(this.form);
+    }
   }
 };
 </script>

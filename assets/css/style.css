@@ -2060,6 +2060,7 @@ body {
   bottom: 0;
   left: 0;
   background-size: cover;
+  background-position: center;
 }
 .slider .parallax-slider .swiper-slide-active .caption h1 {
   -webkit-transition: all 0s;
@@ -6187,4 +6188,7 @@ body {
 
 html {
   scroll-behavior: smooth;
+}
+.pointer {
+  cursor: pointer;
 }

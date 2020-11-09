@@ -8,15 +8,15 @@ export const state = () => ({
     },
     {
       id: 2,
-      head: "Digital",
-      word: "Design Awards",
-      img: "http://innovationplans.com/idesign/avo2/avo-dark/img/slid/03.jpg"
+      head: "Fully",
+      word: "Integrated Team",
+      img: "https://esolve-eg.b-cdn.net/top-view-tools-marketing-min.jpg"
     },
     {
       id: 3,
       head: "Original",
       word: "Solutions",
-      img: "http://innovationplans.com/idesign/avo2/avo-dark/img/slid/02.jpg"
+      img: "https://esolve-eg.b-cdn.net/slid-1.jpg"
     }
   ]
 });
